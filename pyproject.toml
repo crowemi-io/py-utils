@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "py-utils"
+version = "0.1.0"
+description = ""
+authors = ["Andy Crowe <crowemi@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.email.dependencies]
+boto3 = {extras = ["ses"], version = "^1.34.86"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
