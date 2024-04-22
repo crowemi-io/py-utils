@@ -1,15 +1,21 @@
 import dataclasses
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from boto3 import client, Session
 
 
 @dataclass
 class AwsConfig:
-    aws_access_key_id: str
-    aws_secret_access_key: str
-    aws_session_token: str
-    region_name: str
+    aws_access_key_id: str | None = None
+    aws_secret_access_key: str | None = None
+    aws_session_token: str | None = None
+    region_name: str = "us-west-2"
+
+
+@dataclass
+class AwsTags:
+    name: str = field(metadata={"json_key": "Name"})
+    value: str = field(metadata={"json_key": "Value"})
 
 
 class AwsCore:
